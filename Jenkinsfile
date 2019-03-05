@@ -6,7 +6,8 @@ node {
   }
   stage('test') {
      myGradleContainer.inside("-v ${env.JENKINS_HOME}/.gradle:/home/gradle/.gradle") {
-       RUN /bin/sh 'cd complete && ./gradlew test'
+      cd /bin/sh
+       sh 'cd complete && ./gradlew test'
      }
   }
   stage('run') {
