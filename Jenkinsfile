@@ -6,8 +6,7 @@ node {
   }
   stage('test') {
      myGradleContainer.inside("-v ${env.JENKINS_HOME}/.gradle:/home/gradle/.gradle") {
-       RUN apk add --no-cache bash
-       sh 'cd complete && ./gradlew test'
+       RUN /bin/sh 'cd complete && ./gradlew test'
      }
   }
   stage('run') {
